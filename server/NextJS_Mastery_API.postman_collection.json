@@ -1,0 +1,517 @@
+{
+    "info": {
+        "name": "NextJS Mastery API",
+        "description": "Complete API collection for NextJS Mastery Guide project",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:5000/api"
+        },
+        {
+            "key": "userId",
+            "value": ""
+        }
+    ],
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Login / Register",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"test@example.com\"\n}"
+                        },
+                        "url": "{{baseUrl}}/auth/login"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Modules",
+            "item": [
+                {
+                    "name": "Get All Modules",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/modules"
+                    }
+                },
+                {
+                    "name": "Get Module by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/modules/1"
+                    }
+                },
+                {
+                    "name": "Get Module Questions",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/modules/1/questions"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Get User Profile",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/users/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Update User Profile",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"full_name\": \"John Doe\",\n  \"xp_points\": 100\n}"
+                        },
+                        "url": "{{baseUrl}}/users/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Log User Activity",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"action\": \"Completed Lesson\",\n  \"description\": \"Completed Introduction to Next.js\"\n}"
+                        },
+                        "url": "{{baseUrl}}/users/{{userId}}/activity"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Progress",
+            "item": [
+                {
+                    "name": "Get User Progress",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/progress/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Update Progress",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"module_id\": 1,\n  \"is_completed\": true\n}"
+                        },
+                        "url": "{{baseUrl}}/progress"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Notes",
+            "item": [
+                {
+                    "name": "Get User Notes",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/notes/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Create Note",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"module_id\": 1,\n  \"title\": \"My Note\",\n  \"content\": \"This is my note content\"\n}"
+                        },
+                        "url": "{{baseUrl}}/notes"
+                    }
+                },
+                {
+                    "name": "Update Note",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Updated Note Title\",\n  \"content\": \"Updated content\"\n}"
+                        },
+                        "url": "{{baseUrl}}/notes/:noteId"
+                    }
+                },
+                {
+                    "name": "Delete Note",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "{{baseUrl}}/notes/:noteId"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "AI Chat",
+            "item": [
+                {
+                    "name": "Send Chat Message",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"messages\": [\n    {\"role\": \"user\", \"content\": \"What is Next.js?\"}\n  ],\n  \"context\": {\n    \"currentModule\": \"Introduction\",\n    \"skillLevel\": \"beginner\"\n  }\n}"
+                        },
+                        "url": "{{baseUrl}}/chat"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Achievements",
+            "item": [
+                {
+                    "name": "Get User Achievements",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/achievements/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Unlock Achievement",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"achievementKey\": \"first_steps\"\n}"
+                        },
+                        "url": "{{baseUrl}}/achievements/unlock"
+                    }
+                },
+                {
+                    "name": "Update Achievement Progress",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"achievementKey\": \"code_warrior\",\n  \"progress\": 50\n}"
+                        },
+                        "url": "{{baseUrl}}/achievements/progress"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Daily Rewards",
+            "item": [
+                {
+                    "name": "Check Reward Status",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/daily-reward/status/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Claim Daily Reward",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"{{userId}}\"\n}"
+                        },
+                        "url": "{{baseUrl}}/daily-reward/claim"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Certificates",
+            "item": [
+                {
+                    "name": "Get User Certificates",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/certificates/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Award Certificate",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"module_id\": 1,\n  \"title\": \"Next.js Fundamentals\",\n  \"score\": 95\n}"
+                        },
+                        "url": "{{baseUrl}}/certificates"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Streak & Leaderboard",
+            "item": [
+                {
+                    "name": "Get User Streak",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/user-streak/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Get Leaderboard",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/leaderboard"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Subscriptions",
+            "item": [
+                {
+                    "name": "Get User Subscription",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/subscription/{{userId}}"
+                    }
+                },
+                {
+                    "name": "Subscribe to Plan",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"planId\": \"professional\"\n}"
+                        },
+                        "url": "{{baseUrl}}/subscription/subscribe"
+                    }
+                },
+                {
+                    "name": "Cancel Subscription",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"{{userId}}\"\n}"
+                        },
+                        "url": "{{baseUrl}}/subscription/cancel"
+                    }
+                },
+                {
+                    "name": "Get All Plans",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/plans"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Snippets",
+            "item": [
+                {
+                    "name": "Get All Snippets",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/snippets"
+                    }
+                },
+                {
+                    "name": "Save Snippet",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"title\": \"Hello World Component\",\n  \"code\": \"export default function Hello() { return <h1>Hello</h1>; }\",\n  \"language\": \"jsx\"\n}"
+                        },
+                        "url": "{{baseUrl}}/snippets"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Blogs",
+            "item": [
+                {
+                    "name": "Get All Blogs",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/blogs"
+                    }
+                },
+                {
+                    "name": "Get Blogs by Category",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/blogs?category=Tutorial"
+                    }
+                },
+                {
+                    "name": "Get Featured Blogs",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/blogs?featured=true"
+                    }
+                },
+                {
+                    "name": "Search Blogs",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/blogs?search=nextjs"
+                    }
+                },
+                {
+                    "name": "Get Blog by Slug",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/blogs/getting-started-nextjs-15"
+                    }
+                },
+                {
+                    "name": "Create Blog",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"My New Blog Post\",\n  \"slug\": \"my-new-blog-post\",\n  \"excerpt\": \"This is a short summary\",\n  \"content\": \"Full blog content here...\",\n  \"author\": {\n    \"name\": \"John Doe\",\n    \"role\": \"Developer\"\n  },\n  \"category\": \"Tutorial\",\n  \"tags\": [\"Next.js\", \"React\"],\n  \"readTime\": 5\n}"
+                        },
+                        "url": "{{baseUrl}}/blogs"
+                    }
+                },
+                {
+                    "name": "Update Blog",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Updated Blog Title\"\n}"
+                        },
+                        "url": "{{baseUrl}}/blogs/:blogId"
+                    }
+                },
+                {
+                    "name": "Delete Blog",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "{{baseUrl}}/blogs/:blogId"
+                    }
+                },
+                {
+                    "name": "Like Blog",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{baseUrl}}/blogs/:blogId/like"
+                    }
+                },
+                {
+                    "name": "Get Blog Categories",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/blog-categories"
+                    }
+                }
+            ]
+        }
+    ]
+}
