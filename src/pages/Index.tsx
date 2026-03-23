@@ -23,6 +23,9 @@ import InteractiveCodePlayground from "@/components/InteractiveCodePlayground";
 import CompanyLogos from "@/components/CompanyLogos";
 import ProgressTimeline from "@/components/ProgressTimeline";
 import CommunityShowcase from "@/components/CommunityShowcase";
+import DailyChallenges from "@/components/DailyChallenges";
+import QuizWidget from "@/components/QuizWidget";
+import ProTipsCarousel from "@/components/ProTipsCarousel";
 import { LearningPathSection, LiveLessonSection, SuccessStoriesSection } from "@/components/HomeFeatures";
 import AchievementSystem from "@/components/AchievementSystem";
 import { useAuth } from "@/contexts/AuthContext";
@@ -237,8 +240,17 @@ const Index = () => {
       {/* Community Showcase */}
       <CommunityShowcase />
 
+      {/* Daily Challenges */}
+      <DailyChallenges />
+
       {/* Achievement & Streak System */}
       <AchievementSystem />
+
+      {/* Quick Quiz */}
+      <QuizWidget />
+
+      {/* Pro Tips */}
+      <ProTipsCarousel />
 
       {/* Tech Stack */}
       <section className="py-16 px-4 bg-card/30">
