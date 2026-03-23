@@ -240,8 +240,17 @@ const Index = () => {
       {/* Community Showcase */}
       <CommunityShowcase />
 
+      {/* Daily Challenges */}
+      <DailyChallenges />
+
       {/* Achievement & Streak System */}
       <AchievementSystem />
+
+      {/* Quick Quiz */}
+      <QuizWidget />
+
+      {/* Pro Tips */}
+      <ProTipsCarousel />
 
       {/* Tech Stack */}
       <section className="py-16 px-4 bg-card/30">
