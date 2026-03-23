@@ -352,6 +352,29 @@ export const api = {
                 body: JSON.stringify({ role })
             });
             if (!res.ok) throw new Error("Failed to update role");
+        },
+        courses: {
+            getAll: async (): Promise<any[]> => {
+                return handleResponse(await fetch(`${API_URL}/modules`));
+            },
+            create: async (data: any): Promise<any> => {
+                return handleResponse(await fetch(`${API_URL}/modules`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                }));
+            },
+            update: async (id: number, data: any): Promise<any> => {
+                return handleResponse(await fetch(`${API_URL}/modules/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                }));
+            },
+            delete: async (id: number): Promise<void> => {
+                const res = await fetch(`${API_URL}/modules/${id}`, { method: "DELETE" });
+                if (!res.ok) throw new Error("Failed to delete course");
+            }
         }
     }
 };

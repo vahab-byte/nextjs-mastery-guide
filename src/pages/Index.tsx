@@ -18,6 +18,11 @@ import CountUpNumber from "@/components/CountUpNumber";
 import NewsletterSection from "@/components/NewsletterSection";
 import SkillsShowcase from "@/components/SkillsShowcase";
 import FAQSection from "@/components/FAQSection";
+import LiveStatsCounter from "@/components/LiveStatsCounter";
+import InteractiveCodePlayground from "@/components/InteractiveCodePlayground";
+import CompanyLogos from "@/components/CompanyLogos";
+import ProgressTimeline from "@/components/ProgressTimeline";
+import CommunityShowcase from "@/components/CommunityShowcase";
 import { LearningPathSection, LiveLessonSection, SuccessStoriesSection } from "@/components/HomeFeatures";
 import AchievementSystem from "@/components/AchievementSystem";
 import { useAuth } from "@/contexts/AuthContext";
@@ -175,6 +180,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Company Logos Marquee */}
+      <CompanyLogos />
+
       {/* Features Grid */}
       <section className="py-16 md:py-24 px-4">
         <div className="container mx-auto max-w-6xl">
@@ -208,14 +216,26 @@ const Index = () => {
       {/* Learning Paths */}
       <LearningPathSection />
 
+      {/* Interactive Code Playground */}
+      <InteractiveCodePlayground />
+
       {/* Live Lesson & Weekly Challenge */}
       <LiveLessonSection />
+
+      {/* 12-Week Roadmap Timeline */}
+      <ProgressTimeline />
 
       {/* Premium Features */}
       <PremiumFeatures />
 
+      {/* Live Stats Counter */}
+      <LiveStatsCounter />
+
       {/* Success Stories */}
       <SuccessStoriesSection />
+
+      {/* Community Showcase */}
+      <CommunityShowcase />
 
       {/* Achievement & Streak System */}
       <AchievementSystem />
