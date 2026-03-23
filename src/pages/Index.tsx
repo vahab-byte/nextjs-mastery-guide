@@ -216,14 +216,26 @@ const Index = () => {
       {/* Learning Paths */}
       <LearningPathSection />
 
+      {/* Interactive Code Playground */}
+      <InteractiveCodePlayground />
+
       {/* Live Lesson & Weekly Challenge */}
       <LiveLessonSection />
+
+      {/* 12-Week Roadmap Timeline */}
+      <ProgressTimeline />
 
       {/* Premium Features */}
       <PremiumFeatures />
 
+      {/* Live Stats Counter */}
+      <LiveStatsCounter />
+
       {/* Success Stories */}
       <SuccessStoriesSection />
+
+      {/* Community Showcase */}
+      <CommunityShowcase />
 
       {/* Achievement & Streak System */}
       <AchievementSystem />
